@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require_relative 'support/setup_load_paths'
+require_relative 'test_helper'
 require 'player'
 
 class PlayerTest < Minitest::Test
