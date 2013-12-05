@@ -6,5 +6,11 @@ module TicTacToe
       @symbol = symbol
       @color = color
     end
+
+    def ==(other)
+      other.instance_variables.all? do |attr|
+        instance_variable_get(attr) == other.instance_variable_get(attr)
+      end
+    end
   end
 end
