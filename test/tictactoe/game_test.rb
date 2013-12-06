@@ -13,7 +13,7 @@ class GameTest < Minitest::Test
     board = game.board
     player = blue_x
     assert_nil board[1].player
-    game.make_move(position: 1, player: player)
+    game.make_move(1, player)
     assert player == board[1].player
   end
 

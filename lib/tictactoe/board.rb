@@ -5,7 +5,7 @@ module TicTacToe
     include Enumerable
 
     def initialize
-      @board = Array.new(9) { |i| ::TicTacToe::Position.new(position: (i+1), player: nil)}
+      @board = Array.new(9) { |i| ::TicTacToe::Position.new((i+1), nil)}
     end
 
     def each(&block)

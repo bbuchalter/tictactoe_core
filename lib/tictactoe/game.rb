@@ -8,8 +8,8 @@ module TicTacToe
       @board = ::TicTacToe::Board.new
     end
 
-    def make_move(position: position, player: player)
-      @board[position] = ::TicTacToe::Position.new(position: position, player: player)
+    def make_move(position, player)
+      @board[position] = ::TicTacToe::Position.new(position, player)
     end
   end
 end

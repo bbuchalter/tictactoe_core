@@ -2,7 +2,7 @@ module TicTacToe
   class Player
     attr_reader :symbol, :color
 
-    def initialize(symbol: symbol, color: color)
+    def initialize(symbol, color)
       @symbol = symbol
       @color = color
     end
