@@ -8,6 +8,10 @@ module TicTacToe
       TicTacToe::Position.new(position: position, player: player)
     end
 
+    def new_board
+      TicTacToe::Board.new
+    end
+
     def blue_x
       new_player("X", :blue)
     end
