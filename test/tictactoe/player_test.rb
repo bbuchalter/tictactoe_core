@@ -16,6 +16,11 @@ class PlayerTest < Minitest::Test
     assert blue_x != nil
   end
 
+  def test_class_for
+    assert_equal ::TicTacToe::HumanPlayer, ::TicTacToe::Player.class_for(:human)
+    assert_equal ::TicTacToe::ComputerPlayer, ::TicTacToe::Player.class_for(:computer)
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

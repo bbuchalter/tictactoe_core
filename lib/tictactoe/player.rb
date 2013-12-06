@@ -12,5 +12,17 @@ module TicTacToe
         instance_variable_get(attr) == other.instance_variable_get(attr)
       end
     end
+
+    def self.class_for(type)
+      case type
+        when :human
+          ::TicTacToe::HumanPlayer
+        when :computer
+          ::TicTacToe::ComputerPlayer
+      end
+    end
   end
+
+  class HumanPlayer < Player; end
+  class ComputerPlayer < Player; end
 end
