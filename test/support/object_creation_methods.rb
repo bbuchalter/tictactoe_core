@@ -17,7 +17,7 @@ module TicTacToe
     end
 
     def blue_x
-      new_player("X", :blue)
+      new_player('X', :blue)
     end
 
     def position_one_is_x

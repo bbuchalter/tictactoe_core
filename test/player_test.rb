@@ -3,7 +3,7 @@ require 'player'
 
 class PlayerTest < Minitest::Test
   def test_symbol
-    assert_equal "X", blue_x.symbol
+    assert_equal 'X', blue_x.symbol
   end
 
   def test_color
