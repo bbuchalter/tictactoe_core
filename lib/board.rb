@@ -15,5 +15,13 @@ module TicTacToe
     def length
       @board.length
     end
+
+    def [](index)
+      @board[index-1]
+    end
+
+    def []=(index, value)
+      @board[index-1] = value
+    end
   end
 end

@@ -7,6 +7,12 @@ class BoardTest < Minitest::Test
     assert_new_board_state(board)
   end
 
+  def test_position_index
+    board = new_board
+    assert_equal 1, board[1].position
+    assert_equal 9, board[9].position
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods
