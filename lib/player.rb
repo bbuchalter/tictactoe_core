@@ -8,7 +8,7 @@ module TicTacToe
     end
 
     def ==(other)
-      other.instance_variables.all? do |attr|
+      instance_variables.all? do |attr|
         instance_variable_get(attr) == other.instance_variable_get(attr)
       end
     end

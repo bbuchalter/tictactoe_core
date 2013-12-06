@@ -11,7 +11,9 @@ class PlayerTest < Minitest::Test
   end
 
   def test_equality
-    assert_equal blue_x, blue_x
+    assert blue_x == blue_x
+    assert nil != blue_x
+    assert blue_x != nil
   end
 
   private
