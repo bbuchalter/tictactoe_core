@@ -69,6 +69,15 @@ class GameTest < Minitest::Test
     assert_equal false, game.winner?
   end
 
+  def test_turn_count
+    game = new_game_with_players
+    assert_equal 0, game.turn_count
+    game.make_move(1, game.player_one)
+    assert_equal 1, game.turn_count
+    game.make_move(4, game.player_two)
+    assert_equal 2, game.turn_count
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

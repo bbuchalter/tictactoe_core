@@ -2,13 +2,17 @@ require 'tictactoe/board'
 
 module TicTacToe
   class Game
+    attr_reader :turn_count
+
     def initialize
       @board = ::TicTacToe::Board.new
       @players = []
+      @turn_count = 0
     end
 
     def make_move(position, player)
       board.new_move_for(position, ::TicTacToe::Position.new(position, player))
+      self.turn_count = turn_count + 1
     end
 
     def setup_player(type, symbol, color)
@@ -42,7 +46,7 @@ module TicTacToe
     private
 
     attr_reader :board
-
+    attr_writer :turn_count
     attr_accessor :players
 
     def three_positions_in_row_from_same_player?
