@@ -1,6 +1,5 @@
 require_relative 'support/setup_load_paths'
 require_relative 'support/object_creation_methods'
-require_relative 'support/shared_assertions'
 
 if ENV['COVERAGE'] == 'true'
   require 'simplecov'

@@ -16,12 +16,35 @@ module TicTacToe
       ::TicTacToe::Game.new
     end
 
+    def new_game_with_players
+      game = new_game
+      game.setup_player(:human, 'X', :blue)
+      game.setup_player(:human, 'O', :green)
+      game
+    end
+
+    def new_tuple(tuples)
+      ::TicTacToe::Tuple.new(tuples)
+    end
+
     def blue_x
       new_player('X', :blue)
     end
 
-    def position_one_is_x
-      new_position(1, blue_x)
+    def green_o
+      new_player('O', :green)
+    end
+
+    def blue_x_at(position)
+      new_position(position, blue_x)
+    end
+
+    def green_o_at(position)
+      new_position(position, green_o)
+    end
+
+    def empty_at(position)
+      new_position(position, nil)
     end
   end
 end

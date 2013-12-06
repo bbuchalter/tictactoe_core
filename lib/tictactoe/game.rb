@@ -2,15 +2,13 @@ require 'tictactoe/board'
 
 module TicTacToe
   class Game
-    attr_reader :board
-
     def initialize
       @board = ::TicTacToe::Board.new
       @players = []
     end
 
     def make_move(position, player)
-      @board[position] = ::TicTacToe::Position.new(position, player)
+      board.new_move_for(position, ::TicTacToe::Position.new(position, player))
     end
 
     def setup_player(type, symbol, color)
@@ -25,8 +23,34 @@ module TicTacToe
       players[1]
     end
 
+    def game_over?
+      winner? || draw?
+    end
+
+    def winner?
+      three_positions_in_row_from_same_player?
+    end
+
+    def draw?
+      no_positions_available?
+    end
+
+    def move_at(position)
+      board.at(position)
+    end
+
     private
 
+    attr_reader :board
+
     attr_accessor :players
+
+    def three_positions_in_row_from_same_player?
+      board.tuples.any? { |tuple| tuple.all_for_same_player? }
+    end
+
+    def no_positions_available?
+      board.none?(&:empty?)
+    end
   end
 end

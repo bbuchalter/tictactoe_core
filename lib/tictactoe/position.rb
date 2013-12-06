@@ -7,5 +7,9 @@ module TicTacToe
       @position = position
       @player = player
     end
+
+    def empty?
+      player.nil?
+    end
   end
 end
