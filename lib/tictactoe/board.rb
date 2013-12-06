@@ -1,4 +1,4 @@
-require 'position'
+require 'tictactoe/position'
 
 module TicTacToe
   class Board

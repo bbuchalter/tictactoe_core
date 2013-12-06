@@ -1,4 +1,4 @@
-require 'board'
+require 'tictactoe/board'
 
 module TicTacToe
   class Game

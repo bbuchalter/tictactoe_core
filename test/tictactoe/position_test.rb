@@ -1,5 +1,5 @@
-require_relative 'test_helper'
-require 'position'
+require_relative '../test_helper'
+require 'tictactoe/position'
 
 class PositionTest < Minitest::Test
   def test_at

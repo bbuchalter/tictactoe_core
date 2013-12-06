@@ -1,5 +1,5 @@
-require_relative 'test_helper'
-require 'player'
+require_relative '../test_helper'
+require 'tictactoe/player'
 
 class PlayerTest < Minitest::Test
   def test_symbol

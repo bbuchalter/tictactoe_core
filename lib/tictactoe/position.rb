@@ -1,4 +1,4 @@
-require 'player'
+require 'tictactoe/player'
 
 module TicTacToe
   class Position

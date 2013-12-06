@@ -1,5 +1,5 @@
-require_relative 'test_helper'
-require 'game'
+require_relative '../test_helper'
+require 'tictactoe/game'
 
 class GameTest < Minitest::Test
   def test_new_game_has_new_board
