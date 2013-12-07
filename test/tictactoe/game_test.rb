@@ -19,6 +19,7 @@ class GameTest < Minitest::Test
     game = new_game
     player = blue_x
     assert_nil game.move_at(1).player
+
     game.make_move(1, player)
     assert player == game.move_at(1).player
   end
@@ -72,10 +73,23 @@ class GameTest < Minitest::Test
   def test_turn_count
     game = new_game_with_players
     assert_equal 0, game.turn_count
+
     game.make_move(1, game.player_one)
     assert_equal 1, game.turn_count
+
     game.make_move(4, game.player_two)
     assert_equal 2, game.turn_count
+  end
+
+  def test_current_player
+    game = new_game_with_players
+    assert_equal game.player_one, game.current_player
+
+    game.make_move(1, game.player_one)
+    assert_equal game.player_two, game.current_player
+
+    game.make_move(4, game.player_two)
+    assert_equal game.player_one, game.current_player
   end
 
   private

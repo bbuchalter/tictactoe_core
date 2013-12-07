@@ -13,6 +13,7 @@ module TicTacToe
     def make_move(position, player)
       board.new_move_for(position, ::TicTacToe::Position.new(position, player))
       self.turn_count = turn_count + 1
+      self.last_move_by = player
     end
 
     def setup_player(type, symbol, color)
@@ -43,11 +44,15 @@ module TicTacToe
       board.at(position)
     end
 
+    def current_player
+      last_move_by == player_one ? player_two : player_one
+    end
+
     private
 
     attr_reader :board
     attr_writer :turn_count
-    attr_accessor :players
+    attr_accessor :players, :last_move_by
 
     def three_positions_in_row_from_same_player?
       board.tuples.any? { |tuple| tuple.all_for_same_player? }
