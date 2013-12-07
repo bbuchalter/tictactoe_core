@@ -11,14 +11,16 @@ class PlayerTest < Minitest::Test
   end
 
   def test_equality
-    assert blue_x == blue_x
+    assert new_player('X', :blue) == blue_x
     assert nil != blue_x
-    assert blue_x != nil
   end
 
   def test_class_for
-    assert_equal ::TicTacToe::HumanPlayer, ::TicTacToe::Player.class_for(:human)
-    assert_equal ::TicTacToe::ComputerPlayer, ::TicTacToe::Player.class_for(:computer)
+    assert_equal ::TicTacToe::HumanPlayer,
+                 ::TicTacToe::Player.class_for(:human)
+
+    assert_equal ::TicTacToe::ComputerPlayer,
+                 ::TicTacToe::Player.class_for(:computer)
   end
 
   private

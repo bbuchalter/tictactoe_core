@@ -5,7 +5,7 @@ module TicTacToe
     include Enumerable
 
     def initialize
-      @board = Array.new(9) { |i| ::TicTacToe::Position.new((i+1), nil)}
+      @board = Array.new(9) { |i| ::TicTacToe::Position.new((i + 1), nil) }
     end
 
     def each(&block)
@@ -17,11 +17,11 @@ module TicTacToe
     end
 
     def [](index)
-      @board[index-1]
+      @board[index - 1]
     end
 
     def []=(index, value)
-      @board[index-1] = value
+      @board[index - 1] = value
     end
   end
 end

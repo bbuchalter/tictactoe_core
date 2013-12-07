@@ -1,0 +1,7 @@
+Documentation:
+  Enabled: false
+
+CaseIndentation:
+  # Valid values are: case, end
+  IndentWhenRelativeTo: case
+  IndentOneStep: true

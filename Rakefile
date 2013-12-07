@@ -9,9 +9,18 @@ task :coverage do
   `open coverage/index.html`
 end
 
+task :lint do
+  sh 'rubocop -c config/rubocop.yml'
+end
+
 task :collect_coverage do
   ENV['COVERAGE'] = 'true'
   Rake::Task['test'].invoke
 end
 
-task default: :test
+task :build do
+  Rake::Task['collect_coverage'].invoke
+  Rake::Task['lint'].invoke
+end
+
+task default: :build

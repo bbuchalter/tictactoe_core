@@ -9,12 +9,14 @@ To setup:
 bundle install
 ```
 
-To run test suite:
+To build:
 ```
 rake
 ```
+The build includes full test suite, code coverage analysis, and static code analysis.
+The build requires 100% coverage and 0 lint offenses.
 
-To run code coverage analysis:
+To see code coverage via an HTML report:
 ```
 rake coverage
 ```
