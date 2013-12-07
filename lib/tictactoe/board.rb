@@ -22,7 +22,8 @@ module TicTacToe
     end
 
     def new_move_for(index, value)
-      board[index - 1] = value
+      position = index.to_i - 1
+      board[position] = value
     end
 
     def tuples

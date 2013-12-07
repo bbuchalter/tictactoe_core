@@ -30,6 +30,11 @@ class PlayerTest < Minitest::Test
                  }, blue_x.to_hash)
   end
 
+  def test_human
+    assert_equal true, new_human_player.human?
+    assert_equal false, new_computer_player.human?
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

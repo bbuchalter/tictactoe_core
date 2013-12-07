@@ -28,6 +28,10 @@ module TicTacToe
           color: color
       }
     end
+
+    def human?
+      is_a?(HumanPlayer)
+    end
   end
 
   class HumanPlayer < Player; end

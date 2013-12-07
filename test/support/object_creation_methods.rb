@@ -4,6 +4,14 @@ module TicTacToe
       ::TicTacToe::Player.new(symbol, color)
     end
 
+    def new_human_player
+      ::TicTacToe::HumanPlayer.new('X', :blue)
+    end
+
+    def new_computer_player
+      ::TicTacToe::ComputerPlayer.new('O', :green)
+    end
+
     def new_position(position, player)
       ::TicTacToe::Position.new(position, player)
     end
