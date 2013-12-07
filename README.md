@@ -13,3 +13,8 @@ To run test suite:
 ```
 rake
 ```
+
+To run code coverage analysis:
+```
+rake coverage
+```

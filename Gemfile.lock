@@ -31,3 +31,4 @@ DEPENDENCIES
   coveralls
   minitest
   rake
+  simplecov
