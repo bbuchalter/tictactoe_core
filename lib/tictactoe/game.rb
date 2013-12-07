@@ -60,6 +60,12 @@ module TicTacToe
       turn_count == 0 ? nil : @previous_move_by
     end
 
+    def reset
+      @board = ::TicTacToe::Board.new
+      @turn_count = 0
+      @previous_move_by = nil
+    end
+
     private
 
     attr_reader :board

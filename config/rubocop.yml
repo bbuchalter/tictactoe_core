@@ -5,3 +5,6 @@ CaseIndentation:
   # Valid values are: case, end
   IndentWhenRelativeTo: case
   IndentOneStep: true
+
+ClassLength:
+  Max: 120
