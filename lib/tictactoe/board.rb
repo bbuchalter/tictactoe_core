@@ -36,25 +36,29 @@ module TicTacToe
 
     def row_tuples
       [
-          ::TicTacToe::Tuple.new([at(1), at(2), at(3)]),
-          ::TicTacToe::Tuple.new([at(4), at(5), at(6)]),
-          ::TicTacToe::Tuple.new([at(7), at(8), at(9)])
+          tuple_for(1, 2, 3),
+          tuple_for(4, 5, 6),
+          tuple_for(7, 8, 9)
       ]
     end
 
     def column_tuples
       [
-          ::TicTacToe::Tuple.new([at(1), at(4), at(7)]),
-          ::TicTacToe::Tuple.new([at(2), at(5), at(8)]),
-          ::TicTacToe::Tuple.new([at(3), at(6), at(9)])
+          tuple_for(1, 4, 7),
+          tuple_for(2, 5, 8),
+          tuple_for(3, 6, 9)
       ]
     end
 
     def diagonal_tuples
       [
-          ::TicTacToe::Tuple.new([at(1), at(5), at(9)]),
-          ::TicTacToe::Tuple.new([at(3), at(5), at(7)])
+          tuple_for(1, 5, 9),
+          tuple_for(3, 5, 7)
       ]
+    end
+
+    def tuple_for(one, two, three)
+      ::TicTacToe::Tuple.new([at(one), at(two), at(three)])
     end
   end
 end
