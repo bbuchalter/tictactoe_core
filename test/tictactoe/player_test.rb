@@ -23,6 +23,13 @@ class PlayerTest < Minitest::Test
                  ::TicTacToe::Player.class_for(:computer)
   end
 
+  def test_to_hash
+    assert_equal({
+                     symbol: 'X',
+                     color: :blue
+                 }, blue_x.to_hash)
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

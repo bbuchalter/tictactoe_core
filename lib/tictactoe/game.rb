@@ -48,6 +48,14 @@ module TicTacToe
       last_move_by == player_one ? player_two : player_one
     end
 
+    def board_state
+      board.reduce({}) do |state, position|
+        at = position.position.to_s
+        state[at] = position.empty? ? {} : position.player.to_hash
+        state
+      end
+    end
+
     private
 
     attr_reader :board

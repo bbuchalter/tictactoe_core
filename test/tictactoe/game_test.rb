@@ -92,27 +92,17 @@ class GameTest < Minitest::Test
     assert_equal game.player_one, game.current_player
   end
 
+  def test_board_state
+    game = new_game_with_players
+    assert_equal(empty_board_state, game.board_state)
+
+    game.make_move(1, game.player_one)
+    new_state = empty_board_state.merge('1' => { symbol: 'X', color: :blue })
+    assert_equal(new_state, game.board_state)
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods
-
-  def make_winning_moves(game)
-    game.make_move(1, game.player_one)
-    game.make_move(4, game.player_two)
-    game.make_move(2, game.player_one)
-    game.make_move(5, game.player_two)
-    game.make_move(3, game.player_one)
-  end
-
-  def make_tie_game_moves(game)
-    game.make_move(1, game.player_one)
-    game.make_move(4, game.player_two)
-    game.make_move(2, game.player_one)
-    game.make_move(5, game.player_two)
-    game.make_move(6, game.player_one)
-    game.make_move(3, game.player_two)
-    game.make_move(7, game.player_one)
-    game.make_move(8, game.player_two)
-    game.make_move(9, game.player_one)
-  end
+  include ::TicTacToe::GameTestHelpers
 end

@@ -1,5 +1,6 @@
 require_relative 'support/setup_load_paths'
 require_relative 'support/object_creation_methods'
+require_relative 'support/game_test_helpers'
 
 if ENV['COVERAGE'] == 'true'
   require 'simplecov'

@@ -21,6 +21,13 @@ module TicTacToe
           ::TicTacToe::ComputerPlayer
       end
     end
+
+    def to_hash
+      {
+          symbol: symbol,
+          color: color
+      }
+    end
   end
 
   class HumanPlayer < Player; end
