@@ -101,6 +101,17 @@ class GameTest < Minitest::Test
     assert_equal(new_state, game.board_state)
   end
 
+  def test_previous_move_by
+    game = new_game_with_players
+    assert_equal nil, game.previous_move_by
+
+    game.make_move(1, game.player_one)
+    assert_equal game.player_one, game.previous_move_by
+
+    game.make_move(4, game.player_two)
+    assert_equal game.player_two, game.previous_move_by
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods
