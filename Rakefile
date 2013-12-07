@@ -19,8 +19,15 @@ task :collect_coverage do
 end
 
 task :build do
-  Rake::Task['collect_coverage'].invoke
-  Rake::Task['lint'].invoke
+  begin
+    Rake::Task['collect_coverage'].invoke
+    Rake::Task['lint'].invoke
+  rescue
+    puts "************************************"
+    puts "          BUILD FAILED"
+    puts "************************************"
+    exit 1
+  end
 end
 
 task :build_history do
