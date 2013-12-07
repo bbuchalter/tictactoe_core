@@ -20,6 +20,14 @@ class BoardTest < Minitest::Test
     assert !board.at(1).empty?
   end
 
+  def test_duplicate_moves
+    board = new_board
+    board.new_move_for(1, 'X')
+    assert_raises(::TicTacToe::Board::PositionTaken) do
+      board.new_move_for(1, 'X')
+    end
+  end
+
   def test_board_has_all_tuples
     board = new_board
     assert_board_has_all_tuples(board)

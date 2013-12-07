@@ -140,6 +140,14 @@ class GameTest < Minitest::Test
     assert_equal game.player_one, game.current_player
   end
 
+  def test_duplicate_moves
+    game = new_game_with_players
+    game.make_move(1, game.player_one)
+    assert_raises(::TicTacToe::Board::PositionTaken) do
+      game.make_move(1, game.player_one)
+    end
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

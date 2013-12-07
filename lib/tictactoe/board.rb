@@ -23,6 +23,7 @@ module TicTacToe
 
     def new_move_for(index, value)
       position = index.to_i - 1
+      fail PositionTaken unless board[position].empty?
       board[position] = value
     end
 
@@ -60,5 +61,7 @@ module TicTacToe
     def tuple_for(one, two, three)
       ::TicTacToe::Tuple.new([at(one), at(two), at(three)])
     end
+
+    class PositionTaken < RuntimeError; end
   end
 end
