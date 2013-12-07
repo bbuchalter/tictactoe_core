@@ -20,3 +20,9 @@ To see code coverage via an HTML report:
 ```
 rake coverage
 ```
+
+To execute a build for every commit in repo:
+```
+rake build_history
+```
+This may take some time.
