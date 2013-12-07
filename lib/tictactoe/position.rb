@@ -11,5 +11,7 @@ module TicTacToe
     def empty?
       player.nil?
     end
+
+    alias_method :at, :position
   end
 end
