@@ -17,14 +17,18 @@ module TicTacToe
       board.length
     end
 
-    def at(index)
-      board[index - 1]
+    def at(position)
+      board[index_for(position)]
     end
 
-    def new_move_for(index, value)
-      position = index.to_i - 1
-      fail PositionTaken unless board[position].empty?
-      board[position] = value
+    def index_for(position)
+      position.to_i - 1
+    end
+
+    def new_move_for(position, value)
+      fail InvalidPosition unless position.to_i.between?(1, 9)
+      fail PositionTaken unless board[index_for(position)].empty?
+      board[index_for(position)] = value
     end
 
     def tuples
@@ -62,6 +66,9 @@ module TicTacToe
       ::TicTacToe::Tuple.new([at(one), at(two), at(three)])
     end
 
-    class PositionTaken < RuntimeError; end
+    class PositionTaken < RuntimeError
+    end
+    class InvalidPosition < RuntimeError
+    end
   end
 end

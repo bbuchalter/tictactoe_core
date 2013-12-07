@@ -11,4 +11,4 @@ CaseIndentation:
   IndentOneStep: true
 
 ClassLength:
-  Max: 120
+  Max: 100

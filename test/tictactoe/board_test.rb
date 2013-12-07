@@ -28,6 +28,13 @@ class BoardTest < Minitest::Test
     end
   end
 
+  def test_invalid_moves
+    board = new_board
+    assert_raises(::TicTacToe::Board::InvalidPosition) do
+      board.new_move_for(10, 'X')
+    end
+  end
+
   def test_board_has_all_tuples
     board = new_board
     assert_board_has_all_tuples(board)
