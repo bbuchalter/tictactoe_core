@@ -1,5 +1,7 @@
 module TicTacToe
   class Tuple
+    include Enumerable
+
     def initialize(tuple)
       @tuple = tuple
     end
@@ -8,12 +10,36 @@ module TicTacToe
       tuple[index]
     end
 
+    def each(&block)
+      @tuple.each(&block)
+    end
+
     def all_for_same_player?
-      player = tuple[0].player
-      tuple.all? { |position| position.player == player && !position.empty? }
+      player = find_any_player_in_tuple
+      return false if player.nil?
+      tuple.all? { |position| position.player == player }
+    end
+
+    def two_for_same_player?
+      player = find_any_player_in_tuple
+      return false if player.nil?
+      tuple.count { |position| position.player == player } == 2
+    end
+
+    def one_empty?
+      tuple.count { |position| position.empty? } == 1
     end
 
     private
+
+    def find_any_player_in_tuple
+      position = position_with_player
+      position.nil? ? nil : position.player
+    end
+
+    def position_with_player
+      tuple.find { |position| !position.empty? }
+    end
 
     attr_reader :tuple
   end

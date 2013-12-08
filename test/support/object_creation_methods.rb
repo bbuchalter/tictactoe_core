@@ -54,5 +54,9 @@ module TicTacToe
     def empty_at(position)
       new_position(position, nil)
     end
+
+    def win_now(game)
+      ::TicTacToe::Strategy::WinNow.new(game)
+    end
   end
 end

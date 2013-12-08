@@ -4,24 +4,41 @@ require 'tictactoe/position'
 
 class TupleTest < Minitest::Test
   def test_index
-    assert_equal blue_x, new_tuple(positions)[0].player
-    assert_equal 1, new_tuple(positions)[0].position
+    assert_equal blue_x, new_tuple(alternating_positions)[0].player
+    assert_equal 1, new_tuple(alternating_positions)[0].position
 
-    assert_equal green_o, new_tuple(positions)[1].player
-    assert_equal 2, new_tuple(positions)[1].position
+    assert_equal green_o, new_tuple(alternating_positions)[1].player
+    assert_equal 2, new_tuple(alternating_positions)[1].position
+  end
+
+  def test_each
+    new_tuple(three_in_row).each_with_index do |position, index|
+      assert_equal blue_x, position.player
+      assert_equal index + 1, position.at
+    end
   end
 
   def test_all_for_same_player
     assert_equal true, new_tuple(three_in_row).all_for_same_player?
-    assert_equal false, new_tuple(positions).all_for_same_player?
-    assert_equal false, new_tuple(two_in_row_with_nil).all_for_same_player?
+    assert_equal false, new_tuple(alternating_positions).all_for_same_player?
+    assert_equal false, new_tuple(two_in_row_with_empty).all_for_same_player?
+  end
+
+  def test_two_for_sample_player
+    assert_equal false, new_tuple(no_two_in_row).two_for_same_player?
+    assert_equal true, new_tuple(two_in_row_with_empty).two_for_same_player?
+  end
+
+  def test_one_empty
+    assert_equal false, new_tuple([]).one_empty?
+    assert_equal true, new_tuple(two_in_row_with_empty).one_empty?
   end
 
   private
 
   include ::TicTacToe::ObjectCreationMethods
 
-  def positions
+  def alternating_positions
     [
         blue_x_at(1),
         green_o_at(2),
@@ -37,11 +54,18 @@ class TupleTest < Minitest::Test
     ]
   end
 
-  def two_in_row_with_nil
+  def two_in_row_with_empty
     [
         blue_x_at(1),
         empty_at(2),
         blue_x_at(3)
+    ]
+  end
+
+  def no_two_in_row
+    [
+        blue_x_at(1),
+        green_o_at(2)
     ]
   end
 end
