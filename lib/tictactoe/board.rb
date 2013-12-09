@@ -35,6 +35,10 @@ module TicTacToe
       (row_tuples + column_tuples + diagonal_tuples).flatten
     end
 
+    def corners
+      [at(1), at(3), at(7), at(9)]
+    end
+
     private
 
     attr_reader :board

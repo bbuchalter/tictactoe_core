@@ -41,6 +41,10 @@ module TicTacToe
         previous_move.nil? ? false : previous_move.corner?
       end
 
+      def corners
+        board.corners
+      end
+
       private
 
       def previous_move

@@ -99,6 +99,16 @@ class GameQueryStateTest < Minitest::Test
     assert_equal false, game.previous_move_in_corner?
   end
 
+  def test_corners
+    game = new_game
+    corners = game.corners
+    assert_equal 4, corners.length
+    assert_equal 1, corners[0].position
+    assert_equal 3, corners[1].position
+    assert_equal 7, corners[2].position
+    assert_equal 9, corners[3].position
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

@@ -40,6 +40,16 @@ class BoardTest < Minitest::Test
     assert_board_has_all_tuples(board)
   end
 
+  def test_corners
+    board = new_board
+    corners = board.corners
+    assert_equal 4, corners.length
+    assert_equal 1, corners[0].position
+    assert_equal 3, corners[1].position
+    assert_equal 7, corners[2].position
+    assert_equal 9, corners[3].position
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

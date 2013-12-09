@@ -30,7 +30,8 @@ module TicTacToe
           ::TicTacToe::Strategy::BlockFork,
           ::TicTacToe::Strategy::FirstMove,
           ::TicTacToe::Strategy::SecondMove,
-          ::TicTacToe::Strategy::OppositeCorner
+          ::TicTacToe::Strategy::OppositeCorner,
+          ::TicTacToe::Strategy::EmptyCorner
       ]
     end
 
