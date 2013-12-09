@@ -27,6 +27,13 @@ module TicTacToe
       game
     end
 
+    def new_game_with_computer_player_one
+      game = new_game
+      game.setup_player(:computer, 'O', :green)
+      game.setup_player(:human, 'X', :blue)
+      game
+    end
+
     def new_tuple(tuples)
       ::TicTacToe::Tuple.new(tuples)
     end
@@ -53,6 +60,10 @@ module TicTacToe
 
     def win_or_block_strategy(game)
       ::TicTacToe::Strategy::WinOrBlock.new(game)
+    end
+
+    def first_move_mine_strategy(game, player)
+      ::TicTacToe::Strategy::FirstMoveMine.new(game, player)
     end
   end
 end

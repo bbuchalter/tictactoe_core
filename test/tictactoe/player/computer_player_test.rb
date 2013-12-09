@@ -1,7 +1,7 @@
 require_relative '../../test_helper'
 require 'tictactoe/player/computer'
 require 'tictactoe/game'
-require 'tictactoe/strategy/win_or_block'
+require 'tictactoe/strategy'
 
 class ComputerPlayerTest < Minitest::Test
   def test_select_position_using_win_or_block
@@ -16,6 +16,11 @@ class ComputerPlayerTest < Minitest::Test
     assert_raises(::TicTacToe::ComputerPlayer::CannotSelectPosition) do
       computer_green_o.select_position(game)
     end
+  end
+
+  def test_select_position_using_first_move_mine
+    game = new_game_with_computer_player_one
+    assert_equal 1, computer_green_o.select_position(game)
   end
 
   def test_human

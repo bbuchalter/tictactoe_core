@@ -1,7 +1,7 @@
 module TicTacToe
   module Strategy
     class WinOrBlock
-      def initialize(game)
+      def initialize(game, player = nil)
         @game = game
         @applicable_tuple = nil
       end

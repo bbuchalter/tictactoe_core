@@ -1,4 +1,5 @@
 require 'tictactoe/player'
+require 'tictactoe/strategy'
 
 module TicTacToe
   class ComputerPlayer
@@ -7,7 +8,7 @@ module TicTacToe
     def select_position(game)
       strategy = applicable_strategy(game)
       fail CannotSelectPosition if strategy.nil?
-      strategy.new(game).select_position
+      strategy.new(game, self).select_position
     end
 
     def human?
@@ -18,13 +19,14 @@ module TicTacToe
 
     def applicable_strategy(game)
       strategies.find do |strategy|
-        strategy.new(game).applicable?
+        strategy.new(game, self).applicable?
       end
     end
 
     def strategies
       [
-          ::TicTacToe::Strategy::WinOrBlock
+          ::TicTacToe::Strategy::WinOrBlock,
+          ::TicTacToe::Strategy::FirstMoveMine
       ]
     end
 
