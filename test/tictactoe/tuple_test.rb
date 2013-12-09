@@ -4,16 +4,16 @@ require 'tictactoe/position'
 
 class TupleTest < Minitest::Test
   def test_index
-    assert_equal blue_x, new_tuple(alternating_positions)[0].player
+    assert_equal human_blue_x, new_tuple(alternating_positions)[0].player
     assert_equal 1, new_tuple(alternating_positions)[0].position
 
-    assert_equal green_o, new_tuple(alternating_positions)[1].player
+    assert_equal computer_green_o, new_tuple(alternating_positions)[1].player
     assert_equal 2, new_tuple(alternating_positions)[1].position
   end
 
   def test_each
     new_tuple(three_in_row).each_with_index do |position, index|
-      assert_equal blue_x, position.player
+      assert_equal human_blue_x, position.player
       assert_equal index + 1, position.at
     end
   end
@@ -40,32 +40,32 @@ class TupleTest < Minitest::Test
 
   def alternating_positions
     [
-        blue_x_at(1),
-        green_o_at(2),
-        blue_x_at(3)
+        human_blue_x_at(1),
+        computer_green_o_at(2),
+        human_blue_x_at(3)
     ]
   end
 
   def three_in_row
     [
-        blue_x_at(1),
-        blue_x_at(2),
-        blue_x_at(3)
+        human_blue_x_at(1),
+        human_blue_x_at(2),
+        human_blue_x_at(3)
     ]
   end
 
   def two_in_row_with_empty
     [
-        blue_x_at(1),
+        human_blue_x_at(1),
         empty_at(2),
-        blue_x_at(3)
+        human_blue_x_at(3)
     ]
   end
 
   def no_two_in_row
     [
-        blue_x_at(1),
-        green_o_at(2)
+        human_blue_x_at(1),
+        computer_green_o_at(2)
     ]
   end
 end

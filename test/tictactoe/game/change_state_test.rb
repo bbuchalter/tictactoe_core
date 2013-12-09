@@ -4,7 +4,7 @@ require 'tictactoe/game'
 class GameChangeStateTest < Minitest::Test
   def test_make_move
     game = new_game
-    player = blue_x
+    player = human_blue_x
     assert_equal nil, game.move_at(1).player
 
     game.make_move(1, player)

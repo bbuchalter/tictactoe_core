@@ -1,5 +1,5 @@
 module TicTacToe
-  class Player
+  module Player
     attr_reader :symbol, :color
 
     def initialize(symbol, color)
@@ -13,27 +13,11 @@ module TicTacToe
       end
     end
 
-    def self.class_for(type)
-      case type
-        when :human
-          ::TicTacToe::HumanPlayer
-        when :computer
-          ::TicTacToe::ComputerPlayer
-      end
-    end
-
     def to_hash
       {
           symbol: symbol,
           color: color
       }
     end
-
-    def human?
-      is_a?(HumanPlayer)
-    end
   end
-
-  class HumanPlayer < Player; end
-  class ComputerPlayer < Player; end
 end

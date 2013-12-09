@@ -3,36 +3,28 @@ require 'tictactoe/player'
 
 class PlayerTest < Minitest::Test
   def test_symbol
-    assert_equal 'X', blue_x.symbol
+    assert_equal 'X', human_blue_x.symbol
   end
 
   def test_color
-    assert_equal :blue, blue_x.color
+    assert_equal :blue, human_blue_x.color
   end
 
   def test_equality
-    assert new_player('X', :blue) == blue_x
-    assert nil != blue_x
-  end
-
-  def test_class_for
-    assert_equal ::TicTacToe::HumanPlayer,
-                 ::TicTacToe::Player.class_for(:human)
-
-    assert_equal ::TicTacToe::ComputerPlayer,
-                 ::TicTacToe::Player.class_for(:computer)
+    assert new_human_player('X', :blue) == human_blue_x
+    assert nil != human_blue_x
   end
 
   def test_to_hash
     assert_equal({
                      symbol: 'X',
                      color: :blue
-                 }, blue_x.to_hash)
+                 }, human_blue_x.to_hash)
   end
 
   def test_human
-    assert_equal true, new_human_player.human?
-    assert_equal false, new_computer_player.human?
+    assert_equal true, human_blue_x.human?
+    assert_equal false, computer_green_o.human?
   end
 
   private

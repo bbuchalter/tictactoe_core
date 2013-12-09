@@ -1,15 +1,11 @@
 module TicTacToe
   module ObjectCreationMethods
-    def new_player(symbol, color)
-      ::TicTacToe::Player.new(symbol, color)
+    def new_human_player(symbol, color)
+      ::TicTacToe::HumanPlayer.new(symbol, color)
     end
 
-    def new_human_player
-      ::TicTacToe::HumanPlayer.new('X', :blue)
-    end
-
-    def new_computer_player
-      ::TicTacToe::ComputerPlayer.new('O', :green)
+    def new_computer_player(symbol, color)
+      ::TicTacToe::ComputerPlayer.new(symbol, color)
     end
 
     def new_position(position, player)
@@ -35,20 +31,20 @@ module TicTacToe
       ::TicTacToe::Tuple.new(tuples)
     end
 
-    def blue_x
-      new_player('X', :blue)
+    def human_blue_x
+      new_human_player('X', :blue)
     end
 
-    def green_o
-      new_player('O', :green)
+    def computer_green_o
+      new_computer_player('O', :green)
     end
 
-    def blue_x_at(position)
-      new_position(position, blue_x)
+    def human_blue_x_at(position)
+      new_position(position, human_blue_x)
     end
 
-    def green_o_at(position)
-      new_position(position, green_o)
+    def computer_green_o_at(position)
+      new_position(position, computer_green_o)
     end
 
     def empty_at(position)
