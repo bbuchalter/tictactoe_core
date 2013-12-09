@@ -31,7 +31,11 @@ task :build do
 end
 
 task :build_history do
-  sh 'git rev-list --reverse master | while read rev; do echo -e "\n****\nBUILDING $rev" && git checkout -q $rev && rake; done; git checkout master'
+  sh 'git rev-list --reverse master | while read rev; do echo "\n\n\n**************\nBUILDING $rev" && git checkout -q $rev && rake; done; git checkout master'
+end
+
+task :build_since_push do
+  sh 'git rev-list --reverse origin/master..master | while read rev; do echo "\n\n\n**************\nBUILDING $rev" && git checkout -q $rev && rake; done; git checkout master'
 end
 
 task default: :build

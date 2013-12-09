@@ -21,8 +21,13 @@ To see code coverage via an HTML report:
 rake coverage
 ```
 
-To execute a build for every commit in repo:
+To execute a build for every commit in master:
 ```
 rake build_history
 ```
 This may take some time.
+
+To execute  build for origin/master..origin:
+```
+rake build_since_push
+```
