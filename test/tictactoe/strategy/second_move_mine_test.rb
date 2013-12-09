@@ -1,6 +1,6 @@
 require_relative '../../test_helper'
 require 'tictactoe/game'
-require 'tictactoe/strategy/second_move_mine'
+require 'tictactoe/strategy/second_move'
 
 class SecondMoveMineStrategy < Minitest::Test
   def test_applicable
@@ -39,7 +39,7 @@ class SecondMoveMineStrategy < Minitest::Test
   end
 
   def second_move_strategy(game, player)
-    ::TicTacToe::Strategy::SecondMoveMine.new(game, player)
+    ::TicTacToe::Strategy::SecondMove.new(game, player)
   end
 
   def select_position(game, player)

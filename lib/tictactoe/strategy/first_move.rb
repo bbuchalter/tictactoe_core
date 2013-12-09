@@ -1,6 +1,6 @@
 module TicTacToe
   module Strategy
-    class FirstMoveMine
+    class FirstMove
       include ::TicTacToe::Strategy::Tactics
 
       def initialize(game, player)

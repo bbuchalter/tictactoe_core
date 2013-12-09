@@ -1,6 +1,6 @@
 require_relative '../../test_helper'
 require 'tictactoe/game'
-require 'tictactoe/strategy/first_move_mine'
+require 'tictactoe/strategy/first_move'
 
 class FirstMoveMineStrategyTest < Minitest::Test
   def test_applicable

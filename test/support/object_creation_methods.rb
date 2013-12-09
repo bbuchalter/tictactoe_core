@@ -70,7 +70,7 @@ module TicTacToe
     end
 
     def first_move_mine_strategy(game, player)
-      ::TicTacToe::Strategy::FirstMoveMine.new(game, player)
+      ::TicTacToe::Strategy::FirstMove.new(game, player)
     end
   end
 end
