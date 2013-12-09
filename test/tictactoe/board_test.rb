@@ -50,6 +50,16 @@ class BoardTest < Minitest::Test
     assert_equal 9, corners[3].position
   end
 
+  def test_sides
+    board = new_board
+    sides = board.sides
+    assert_equal 4, sides.length
+    assert_equal 2, sides[0].position
+    assert_equal 4, sides[1].position
+    assert_equal 6, sides[2].position
+    assert_equal 8, sides[3].position
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

@@ -45,6 +45,10 @@ module TicTacToe
         board.corners
       end
 
+      def sides
+        board.sides
+      end
+
       private
 
       def previous_move

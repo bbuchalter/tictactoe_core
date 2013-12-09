@@ -73,5 +73,23 @@ module TicTacToe
       game.make_move(7, game.player_one)
       game.make_move(8, game.player_two)
     end
+
+    def position_player_one_to_take_last_side(game)
+      game.make_move(1, game.player_one)
+      game.make_move(2, game.player_two)
+      game.make_move(3, game.player_one)
+      game.make_move(4, game.player_two)
+      game.make_move(5, game.player_one)
+      game.make_move(9, game.player_two)
+      game.make_move(8, game.player_one)
+      game.make_move(7, game.player_two)
+    end
+
+    def take_all_side_moves(game)
+      game.make_move(2, game.player_one)
+      game.make_move(4, game.player_two)
+      game.make_move(6, game.player_one)
+      game.make_move(8, game.player_two)
+    end
   end
 end

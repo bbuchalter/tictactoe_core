@@ -39,6 +39,10 @@ module TicTacToe
       [at(1), at(3), at(7), at(9)]
     end
 
+    def sides
+      [at(2), at(4), at(6), at(8)]
+    end
+
     private
 
     attr_reader :board

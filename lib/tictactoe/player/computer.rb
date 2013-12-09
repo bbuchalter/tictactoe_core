@@ -31,7 +31,8 @@ module TicTacToe
           ::TicTacToe::Strategy::FirstMove,
           ::TicTacToe::Strategy::SecondMove,
           ::TicTacToe::Strategy::OppositeCorner,
-          ::TicTacToe::Strategy::EmptyCorner
+          ::TicTacToe::Strategy::EmptyCorner,
+          ::TicTacToe::Strategy::EmptySide
       ]
     end
 
