@@ -16,6 +16,10 @@ module TicTacToe
         players[1]
       end
 
+      def other_player(other)
+        player_one == other ? player_two : player_one
+      end
+
       private
 
       def player_class_for(type)

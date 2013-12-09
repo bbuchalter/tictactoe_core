@@ -1,4 +1,5 @@
 require_relative '../../test_helper'
+require 'tictactoe/strategy/tactics'
 require 'tictactoe/strategy/fork'
 require 'tictactoe/game'
 

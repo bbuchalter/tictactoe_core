@@ -51,5 +51,11 @@ module TicTacToe
       game.make_move(9, game.player_one)
       game.make_move(7, game.player_two)
     end
+
+    def position_player_two_to_block_fork(game)
+      game.make_move(1, game.player_one)
+      game.make_move(5, game.player_two)
+      game.make_move(9, game.player_one)
+    end
   end
 end

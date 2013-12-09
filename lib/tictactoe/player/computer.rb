@@ -27,6 +27,7 @@ module TicTacToe
       [
           ::TicTacToe::Strategy::WinOrBlock,
           ::TicTacToe::Strategy::Fork,
+          ::TicTacToe::Strategy::BlockFork,
           ::TicTacToe::Strategy::FirstMove,
           ::TicTacToe::Strategy::SecondMove
       ]

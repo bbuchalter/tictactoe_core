@@ -24,6 +24,12 @@ class GamePlayersTest < Minitest::Test
     assert_equal :green, game.player_two.color
   end
 
+  def test_other_player
+    game = new_game_with_players
+    assert_equal game.player_one, game.other_player(game.player_two)
+    assert_equal game.player_two, game.other_player(game.player_one)
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods
