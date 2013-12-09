@@ -1,6 +1,6 @@
 module TicTacToe
   module Strategy
-    class FirstMoveMine
+    class SecondMoveMine
       include ::TicTacToe::Strategy::Tactics
 
       def initialize(game, player)
@@ -9,11 +9,12 @@ module TicTacToe
       end
 
       def applicable?
-        game.turn_count == 0 && game.current_player == player
+        game.turn_count == 1 && game.current_player == player
       end
 
       def select_position
-        take_corner if applicable?
+        return nil unless applicable?
+        game.previous_move_position == center ? take_corner : take_center
       end
 
       private

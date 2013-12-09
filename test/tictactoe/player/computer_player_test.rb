@@ -23,6 +23,18 @@ class ComputerPlayerTest < Minitest::Test
     assert_equal 1, computer_green_o.select_position(game)
   end
 
+  def test_select_position_using_second_move_mine_first_move_not_center
+    game = new_game_with_computer_player_two
+    game.make_move(1, game.player_one)
+    assert_equal 5, game.player_two.select_position(game)
+  end
+
+  def test_select_position_using_second_move_mine_first_move_center
+    game = new_game_with_computer_player_two
+    game.make_move(5, game.player_one)
+    assert_equal 1, game.player_two.select_position(game)
+  end
+
   def test_human
     assert_equal false, computer_green_o.human?
   end

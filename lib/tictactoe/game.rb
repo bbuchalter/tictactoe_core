@@ -18,7 +18,7 @@ module TicTacToe
     def initialize
       initialize_board
       initialize_players
-      initialize_previous_move_by
+      initialize_previous_move
       initialize_turn_count
     end
 
@@ -26,7 +26,7 @@ module TicTacToe
 
     attr_accessor :players
     attr_reader :board
-    attr_writer :turn_count, :previous_move_by
+    attr_writer :turn_count, :previous_move
 
     def initialize_board
       @board = ::TicTacToe::Board.new
@@ -36,8 +36,8 @@ module TicTacToe
       @players = []
     end
 
-    def initialize_previous_move_by
-      @previous_move_by = nil
+    def initialize_previous_move
+      @previous_move = nil
     end
 
     def initialize_turn_count

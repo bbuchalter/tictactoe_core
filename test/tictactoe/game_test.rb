@@ -14,7 +14,7 @@ class GameTest < Minitest::Test
   end
 
   def test_new_game_has_no_previous_move
-    assert_nil new_game.previous_move_by
+    assert_nil new_game.previous_move_player
   end
 
   def test_new_game_has_turn_count_zero

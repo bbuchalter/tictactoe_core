@@ -29,15 +29,15 @@ class GameQueryStateTest < Minitest::Test
     assert_equal(new_state, game.board_state)
   end
 
-  def test_previous_move_by
+  def test_previous_move_player
     game = new_game_with_players
-    assert_equal nil, game.previous_move_by
+    assert_equal nil, game.previous_move_player
 
     game.make_move(1, game.player_one)
-    assert_equal game.player_one, game.previous_move_by
+    assert_equal game.player_one, game.previous_move_player
 
     game.make_move(4, game.player_two)
-    assert_equal game.player_two, game.previous_move_by
+    assert_equal game.player_two, game.previous_move_player
   end
 
   def test_current_player
@@ -49,6 +49,17 @@ class GameQueryStateTest < Minitest::Test
 
     game.make_move(4, game.player_two)
     assert_equal game.player_one, game.current_player
+  end
+
+  def test_previous_move_position
+    game = new_game_with_players
+    assert_equal nil, game.previous_move_position
+
+    game.make_move(1, game.player_one)
+    assert_equal 1, game.previous_move_position
+
+    game.make_move(4, game.player_two)
+    assert_equal 4, game.previous_move_position
   end
 
   private

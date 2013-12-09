@@ -44,13 +44,22 @@ class GameChangeStateTest < Minitest::Test
     assert_equal 0, game.turn_count
   end
 
-  def test_reset_previous_move_by
+  def test_reset_previous_move_player
     game = new_game_with_players
     game.make_move(1, game.player_one)
-    assert_equal game.player_one, game.previous_move_by
+    assert_equal game.player_one, game.previous_move_player
 
     game.reset
-    assert_equal nil, game.previous_move_by
+    assert_equal nil, game.previous_move_player
+  end
+
+  def test_reset_previous_move_position
+    game = new_game_with_players
+    game.make_move(1, game.player_one)
+    assert_equal 1, game.previous_move_position
+
+    game.reset
+    assert_equal nil, game.previous_move_position
   end
 
   def test_reset_current_player

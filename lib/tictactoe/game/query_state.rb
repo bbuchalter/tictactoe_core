@@ -14,11 +14,15 @@ module TicTacToe
       end
 
       def current_player
-        previous_move_by == player_one ? player_two : player_one
+        previous_move_player == player_one ? player_two : player_one
       end
 
-      def previous_move_by
-        turn_count == 0 ? nil : @previous_move_by
+      def previous_move_player
+        turn_count == 0 ? nil : @previous_move.player
+      end
+
+      def previous_move_position
+        turn_count == 0 ? nil : @previous_move.position
       end
     end
   end

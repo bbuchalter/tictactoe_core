@@ -26,7 +26,8 @@ module TicTacToe
     def strategies
       [
           ::TicTacToe::Strategy::WinOrBlock,
-          ::TicTacToe::Strategy::FirstMoveMine
+          ::TicTacToe::Strategy::FirstMoveMine,
+          ::TicTacToe::Strategy::SecondMoveMine
       ]
     end
 
