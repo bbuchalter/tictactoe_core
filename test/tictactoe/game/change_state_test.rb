@@ -51,6 +51,9 @@ class GameChangeStateTest < Minitest::Test
 
     game.reset
     assert_equal nil, game.previous_move_player
+
+    game.make_move(1, game.player_two)
+    assert_equal game.player_two, game.previous_move_player
   end
 
   def test_reset_previous_move_position
@@ -60,6 +63,9 @@ class GameChangeStateTest < Minitest::Test
 
     game.reset
     assert_equal nil, game.previous_move_position
+
+    game.make_move(2, game.player_two)
+    assert_equal 2, game.previous_move_position
   end
 
   def test_reset_current_player

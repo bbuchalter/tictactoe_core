@@ -18,7 +18,6 @@ module TicTacToe
     def initialize(player_one = nil, player_two = nil, move_history = nil)
       initialize_board
       initialize_players(player_one, player_two)
-      initialize_previous_move
       initialize_turn_count
       initialize_move_history(move_history)
     end
@@ -43,15 +42,11 @@ module TicTacToe
       @players << player_two if player_two
     end
 
-    def initialize_previous_move
-      @previous_move = nil
-    end
-
     def initialize_turn_count
       @turn_count = 0
     end
 
-    def initialize_move_history(move_history)
+    def initialize_move_history(move_history = nil)
       @move_history = []
       replay_move_history(move_history) if move_history
     end

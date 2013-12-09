@@ -11,7 +11,7 @@ module TicTacToe
       def reset
         initialize_board
         initialize_turn_count
-        initialize_previous_move
+        initialize_move_history
       end
     end
   end
