@@ -29,7 +29,8 @@ module TicTacToe
           ::TicTacToe::Strategy::Fork,
           ::TicTacToe::Strategy::BlockFork,
           ::TicTacToe::Strategy::FirstMove,
-          ::TicTacToe::Strategy::SecondMove
+          ::TicTacToe::Strategy::SecondMove,
+          ::TicTacToe::Strategy::OppositeCorner
       ]
     end
 

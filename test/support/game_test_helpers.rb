@@ -57,5 +57,10 @@ module TicTacToe
       game.make_move(5, game.player_two)
       game.make_move(9, game.player_one)
     end
+
+    def position_player_one_for_opposite_corner(game)
+      game.make_move(1, game.player_one)
+      game.make_move(3, game.player_two)
+    end
   end
 end

@@ -12,6 +12,16 @@ module TicTacToe
       player.nil?
     end
 
+    def corner?
+      corner_positions.include?(position)
+    end
+
     alias_method :at, :position
+
+    private
+
+    def corner_positions
+      [1, 3, 7, 9]
+    end
   end
 end

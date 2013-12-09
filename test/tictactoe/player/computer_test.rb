@@ -53,6 +53,12 @@ class ComputerPlayerTest < Minitest::Test
     assert_equal 2, game.player_two.select_position(game)
   end
 
+  def test_select_position_when_able_to_take_opposite_corner
+    game = new_game_with_computer_players
+    position_player_one_for_opposite_corner(game)
+    assert_equal 7, game.player_one.select_position(game)
+  end
+
   def test_human
     assert_equal false, computer_green_o.human?
   end

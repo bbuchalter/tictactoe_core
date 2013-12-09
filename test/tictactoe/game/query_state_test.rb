@@ -90,6 +90,15 @@ class GameQueryStateTest < Minitest::Test
     assert_equal true, game.two_threats_by?(game.player_one)
   end
 
+  def test_previous_move_in_corner?
+    game = new_game_with_players
+    assert_equal false, game.previous_move_in_corner?
+    game.make_move(1, game.player_one)
+    assert_equal true, game.previous_move_in_corner?
+    game.make_move(2, game.player_one)
+    assert_equal false, game.previous_move_in_corner?
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

@@ -37,6 +37,10 @@ module TicTacToe
         threat_count == 2
       end
 
+      def previous_move_in_corner?
+        previous_move.nil? ? false : previous_move.corner?
+      end
+
       private
 
       def previous_move
