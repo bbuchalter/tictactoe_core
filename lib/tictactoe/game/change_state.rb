@@ -5,7 +5,7 @@ module TicTacToe
         new_move = ::TicTacToe::Position.new(position, player)
         board.new_move_for(position, new_move)
         self.turn_count = turn_count + 1
-        self.previous_move = new_move
+        move_history << new_move
       end
 
       def reset

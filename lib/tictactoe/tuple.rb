@@ -23,11 +23,15 @@ module TicTacToe
     def two_for_same_player?
       player = find_any_player_in_tuple
       return false if player.nil?
-      tuple.count { |position| position.player == player } == 2
+      two_for?(player)
     end
 
     def one_empty?
       tuple.count { |position| position.empty? } == 1
+    end
+
+    def two_for?(player)
+      tuple.count { |position| position.player == player } == 2
     end
 
     private

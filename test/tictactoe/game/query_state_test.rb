@@ -62,6 +62,34 @@ class GameQueryStateTest < Minitest::Test
     assert_equal 4, game.previous_move_position
   end
 
+  def test_empty_positions
+    game = new_game_with_players
+    assert_equal 1, game.empty_positions[0]
+    assert_equal 9, game.empty_positions.length
+
+    game.make_move(1, game.player_one)
+    assert_equal 2, game.empty_positions[0]
+    assert_equal 8, game.empty_positions.length
+
+    game = new_game_with_players
+    make_tie_game_moves(game)
+    assert_equal 0, game.empty_positions.length
+  end
+
+  def test_two_threats_by?
+    game = new_game_with_players
+    assert_equal false, game.two_threats_by?(game.player_one)
+
+    game.make_move(1, game.player_one)
+    game.make_move(5, game.player_two)
+    game.make_move(9, game.player_one)
+    assert_equal false, game.two_threats_by?(game.player_one)
+
+    game.make_move(7, game.player_two)
+    game.make_move(3, game.player_one)
+    assert_equal true, game.two_threats_by?(game.player_one)
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

@@ -2,9 +2,9 @@ require_relative '../../test_helper'
 require 'tictactoe/game'
 require 'tictactoe/strategy/first_move'
 
-class FirstMoveMineStrategyTest < Minitest::Test
-  def test_applicable
-    game = new_game_with_computer_player_one
+class FirstMoveStrategyTest < Minitest::Test
+  def test_applicable?
+    game = new_game_with_computer_players
     assert_equal true, applicable?(game, game.player_one)
     assert_equal false, applicable?(game, game.player_two)
 
@@ -14,12 +14,12 @@ class FirstMoveMineStrategyTest < Minitest::Test
   end
 
   def test_select_position_when_applicable
-    game = new_game_with_computer_player_one
+    game = new_game_with_computer_players
     assert_equal 1, select_position(game, game.player_one)
   end
 
   def test_select_position_when_not_applicable
-    game = new_game_with_computer_player_one
+    game = new_game_with_computer_players
     assert_equal nil, select_position(game, game.player_two)
   end
 

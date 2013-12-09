@@ -26,6 +26,7 @@ module TicTacToe
     def strategies
       [
           ::TicTacToe::Strategy::WinOrBlock,
+          ::TicTacToe::Strategy::Fork,
           ::TicTacToe::Strategy::FirstMove,
           ::TicTacToe::Strategy::SecondMove
       ]

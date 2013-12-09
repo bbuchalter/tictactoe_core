@@ -2,7 +2,7 @@ require_relative '../../test_helper'
 require 'tictactoe/game'
 require 'tictactoe/strategy/win_or_block'
 
-class WinOrBlockTest < Minitest::Test
+class WinOrBlockStrategyTest < Minitest::Test
   def test_applicable_when_applicable
     game = new_game_with_players
     position_player_one_for_win(game)

@@ -27,16 +27,9 @@ module TicTacToe
       game
     end
 
-    def new_game_with_computer_player_one
+    def new_game_with_computer_players
       game = new_game
-      game.setup_player(:computer, 'O', :green)
-      game.setup_player(:human, 'X', :blue)
-      game
-    end
-
-    def new_game_with_computer_player_two
-      game = new_game
-      game.setup_player(:human, 'X', :blue)
+      game.setup_player(:computer, 'X', :blue)
       game.setup_player(:computer, 'O', :green)
       game
     end
