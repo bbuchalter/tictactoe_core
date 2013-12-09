@@ -1,8 +1,6 @@
 module TicTacToe
   module Strategy
     class BlockFork
-      include ::TicTacToe::Strategy::Tactics
-
       def initialize(game, player)
         @game = game
         @player = player
@@ -19,6 +17,8 @@ module TicTacToe
       private
 
       attr_reader :game, :player
+
+      include ::TicTacToe::Strategy::Tactics
 
       def opponents_threat
         threatening_position_for(game.other_player(player))

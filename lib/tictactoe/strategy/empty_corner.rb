@@ -17,9 +17,7 @@ module TicTacToe
 
       attr_reader :game
 
-      def empty_corner
-        game.corners.find(&:empty?)
-      end
+      include ::TicTacToe::Strategy::Tactics
     end
   end
 end
