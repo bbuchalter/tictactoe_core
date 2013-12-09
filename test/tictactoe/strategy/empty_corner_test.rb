@@ -6,7 +6,7 @@ class EmptyCornerStrategyTest < Minitest::Test
   def test_applicable?
     game = new_game_with_computer_players
     assert_equal true, applicable?(game)
-    make_tie_game_moves(game)
+    take_all_corners(game)
     assert_equal false, applicable?(game)
   end
 

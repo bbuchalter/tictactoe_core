@@ -6,13 +6,13 @@ class EmptySideStrategyTest < Minitest::Test
   def test_applicable?
     game = new_game_with_computer_players
     assert_equal true, applicable?(game)
-    take_all_side_moves(game)
+    take_all_sides(game)
     assert_equal false, applicable?(game)
   end
 
   def test_select_position_when_not_applicable
     game = new_game_with_computer_players
-    take_all_side_moves(game)
+    take_all_sides(game)
     assert_equal nil, select_position(game)
   end
 
