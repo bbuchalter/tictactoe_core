@@ -9,6 +9,14 @@ class GameChangeStateTest < Minitest::Test
 
     game.make_move(1, player)
     assert player == game.move_at(1).player
+    assert_equal 1, game.move_at(1).position
+  end
+
+  def test_make_move_converts_strings_to_ints
+    game = new_game
+    player = human_blue_x
+    game.make_move('1', player)
+    assert_equal 1, game.move_at(1).position
   end
 
   def test_duplicate_moves
