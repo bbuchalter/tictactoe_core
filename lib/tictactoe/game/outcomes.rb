@@ -12,6 +12,11 @@ module TicTacToe
       def draw?
         no_positions_available? && !winner?
       end
+
+      def winner
+        return nil unless winner?
+        winning_tuple[0].player
+      end
     end
   end
 end

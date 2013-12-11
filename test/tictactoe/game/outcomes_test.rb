@@ -34,6 +34,20 @@ class GameOutcomesTest < Minitest::Test
     assert_equal false, game.draw?
   end
 
+  def test_winner_with_winning_game
+    game = new_game_with_players
+    assert_equal nil, game.winner
+
+    make_winning_moves(game)
+    assert_equal game.player_one, game.winner
+  end
+
+  def test_winner_with_draw_game
+    game = new_game_with_players
+    make_draw(game)
+    assert_equal nil, game.winner
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

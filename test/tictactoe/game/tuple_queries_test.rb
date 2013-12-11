@@ -10,6 +10,17 @@ class TupleQueriesTest < Minitest::Test
     assert_equal true, game.three_for_same_player?
   end
 
+  def test_winning_tuple
+    game = new_game_with_players
+    assert_equal nil, game.winning_tuple
+
+    make_winning_moves(game)
+    winning_tuple = game.winning_tuple
+    assert_equal 1, winning_tuple[0].position
+    assert_equal 2, winning_tuple[1].position
+    assert_equal 3, winning_tuple[2].position
+  end
+
   def test_no_positions_available?
     game = new_game_with_players
     assert_equal false, game.no_positions_available?
