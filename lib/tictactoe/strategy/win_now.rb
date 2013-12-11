@@ -1,13 +1,14 @@
 module TicTacToe
   module Strategy
-    class WinOrBlock
-      def initialize(game, player = nil)
+    class WinNow
+      def initialize(game, player)
         @game = game
+        @player = player
         @applicable_tuple = nil
       end
 
       def applicable?
-        self.applicable_tuple = game.threatening_tuple
+        self.applicable_tuple = game.threat_for(player)
         !applicable_tuple.nil?
       end
 
@@ -19,7 +20,7 @@ module TicTacToe
 
       private
 
-      attr_reader :game
+      attr_reader :game, :player
       attr_accessor :applicable_tuple
     end
   end
