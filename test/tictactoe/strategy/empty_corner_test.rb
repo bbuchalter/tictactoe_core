@@ -19,7 +19,7 @@ class EmptyCornerStrategyTest < Minitest::Test
 
   def test_select_position_when_not_applicable
     game = new_game_with_computer_players
-    make_tie_game_moves(game)
+    make_draw(game)
     assert_equal nil, select_position(game)
   end
 

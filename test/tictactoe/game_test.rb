@@ -23,7 +23,7 @@ class GameTest < Minitest::Test
 
   def test_deep_clone
     game = new_game_with_players
-    make_tie_game_moves(game)
+    make_draw(game)
     clone = game.deep_clone
 
     assert_equal game.player_one,             clone.player_one

@@ -56,7 +56,7 @@ class GameQueryStateTest < Minitest::Test
     assert_equal 8, game.empty_positions.length
 
     game = new_game_with_players
-    make_tie_game_moves(game)
+    make_draw(game)
     assert_equal 0, game.empty_positions.length
   end
 

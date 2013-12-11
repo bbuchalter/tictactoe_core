@@ -13,7 +13,7 @@ class TupleQueriesTest < Minitest::Test
   def test_no_positions_available?
     game = new_game_with_players
     assert_equal false, game.no_positions_available?
-    make_tie_game_moves(game)
+    make_draw(game)
     assert_equal true, game.no_positions_available?
   end
 

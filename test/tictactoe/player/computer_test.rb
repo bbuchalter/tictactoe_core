@@ -18,7 +18,7 @@ class ComputerPlayerTest < Minitest::Test
 
   def test_select_position_when_cannot_select_position
     game = new_game_with_computer_players
-    make_tie_game_moves(game)
+    make_draw(game)
     assert_raises(::TicTacToe::ComputerPlayer::CannotSelectPosition) do
       game.player_one.select_position(game)
     end

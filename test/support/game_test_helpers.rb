@@ -12,7 +12,7 @@ module TicTacToe
       game.make_move(9, game.player_two)
     end
 
-    def make_tie_game_moves(game)
+    def make_draw(game)
       game.make_move(1, game.player_one)
       game.make_move(4, game.player_two)
       game.make_move(2, game.player_one)

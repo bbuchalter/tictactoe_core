@@ -20,7 +20,7 @@ class GameOutcomesTest < Minitest::Test
     assert_equal false, game.draw?
     assert_equal false, game.winner?
 
-    make_tie_game_moves(game)
+    make_draw(game)
     assert_equal true, game.game_over?
     assert_equal true, game.draw?
     assert_equal false, game.winner?
