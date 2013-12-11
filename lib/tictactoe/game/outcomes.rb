@@ -10,7 +10,7 @@ module TicTacToe
       end
 
       def draw?
-        no_positions_available?
+        no_positions_available? && !winner?
       end
     end
   end
