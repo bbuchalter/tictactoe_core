@@ -13,11 +13,7 @@ module TicTacToe
         empty_corner.position
       end
 
-      def take_side
-        empty_side.position
-      end
-
-      def threatening_position_for(player)
+      def fork_for(game, player)
         game.empty_positions.find do |possible_threat|
           possible_game = game.deep_clone
           possible_game.make_move(possible_threat, player)

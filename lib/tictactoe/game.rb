@@ -4,6 +4,7 @@ require 'tictactoe/game/outcomes'
 require 'tictactoe/game/query_state'
 require 'tictactoe/game/change_state'
 require 'tictactoe/game/tuple_queries'
+require 'tictactoe/game/board'
 
 module TicTacToe
   class Game
@@ -12,6 +13,7 @@ module TicTacToe
     include ::TicTacToe::Game::QueryState
     include ::TicTacToe::Game::ChangeState
     include ::TicTacToe::Game::TupleQueries
+    include ::TicTacToe::Game::Board
 
     attr_reader :turn_count
 

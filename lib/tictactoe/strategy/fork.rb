@@ -7,11 +7,11 @@ module TicTacToe
       end
 
       def applicable?
-        !threatening_position_for(player).nil?
+        !fork_for(game, player).nil?
       end
 
       def select_position
-        threatening_position_for(player)
+        fork_for(game, player)
       end
 
       private

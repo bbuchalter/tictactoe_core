@@ -9,7 +9,7 @@ module TicTacToe
       game.make_move(1, game.player_one)
       game.make_move(4, game.player_two)
       game.make_move(2, game.player_one)
-      game.make_move(5, game.player_two)
+      game.make_move(9, game.player_two)
     end
 
     def make_tie_game_moves(game)
@@ -58,9 +58,18 @@ module TicTacToe
       game.make_move(9, game.player_one)
     end
 
-    def position_player_one_for_opposite_corner(game)
-      game.make_move(1, game.player_one)
-      game.make_move(3, game.player_two)
+    def position_player_two_to_block_fork_without_center(game)
+      game.make_move(5, game.player_one)
+      game.make_move(1, game.player_two)
+      game.make_move(9, game.player_one)
+    end
+
+    def position_player_two_for_opposite_corner(game)
+      game.make_move(2, game.player_one)
+      game.make_move(4, game.player_two)
+      game.make_move(6, game.player_one)
+      game.make_move(8, game.player_two)
+      game.make_move(7, game.player_one)
     end
 
     def position_player_one_to_take_last_corner(game)

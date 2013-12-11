@@ -1,18 +1,6 @@
 module TicTacToe
   class Game
     module QueryState
-      def move_at(position)
-        board.at(position)
-      end
-
-      def board_state
-        board.reduce({}) do |state, position|
-          at = position.at.to_s
-          state[at] = position.empty? ? {} : position.player.to_hash
-          state
-        end
-      end
-
       def current_player
         previous_move_player == player_one ? player_two : player_one
       end
@@ -41,12 +29,8 @@ module TicTacToe
         previous_move.nil? ? false : previous_move.corner?
       end
 
-      def corners
-        board.corners
-      end
-
-      def sides
-        board.sides
+      def player_made_at_least_two_moves?(player)
+        move_history.count { |move| move.player == player } >= 2
       end
 
       private

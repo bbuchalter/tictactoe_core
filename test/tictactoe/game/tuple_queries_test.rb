@@ -17,15 +17,19 @@ class TupleQueriesTest < Minitest::Test
     assert_equal true, game.no_positions_available?
   end
 
-  def test_two_positions_in_row_for_same_player_and_one_empty
+  def test_threat_for
     game = new_game_with_players
-    assert_equal nil, game.two_for_same_player_and_one_empty
+    assert_equal nil, game.threat_for(game.player_one)
+    assert_equal nil, game.threat_for(game.player_two)
 
     one_move_away_from_win(game)
-    tuple = game.two_for_same_player_and_one_empty
-    assert_equal 1, tuple[0].position
-    assert_equal 2, tuple[1].position
-    assert_equal 3, tuple[2].position
+    player_one_tuple = game.threat_for(game.player_one)
+    assert_equal 1, player_one_tuple[0].position
+    assert_equal 2, player_one_tuple[1].position
+    assert_equal 3, player_one_tuple[2].position
+
+    player_two_tuple = game.threat_for(game.player_two)
+    assert_equal nil, player_two_tuple
   end
 
   private

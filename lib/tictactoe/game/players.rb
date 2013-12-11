@@ -16,7 +16,7 @@ module TicTacToe
         players[1]
       end
 
-      def other_player(other)
+      def opponent(other)
         player_one == other ? player_two : player_one
       end
 

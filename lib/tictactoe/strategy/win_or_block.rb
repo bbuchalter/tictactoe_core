@@ -7,7 +7,7 @@ module TicTacToe
       end
 
       def applicable?
-        self.applicable_tuple = game.two_for_same_player_and_one_empty
+        self.applicable_tuple = game.threatening_tuple
         !applicable_tuple.nil?
       end
 

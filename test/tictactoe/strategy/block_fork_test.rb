@@ -9,12 +9,20 @@ class BlockForkStrategyTest < Minitest::Test
     assert_equal false, applicable?(game, game.player_two)
     position_player_two_to_block_fork(game)
     assert_equal true, applicable?(game, game.player_two)
+
+    game = new_game_with_computer_players
+    position_player_two_to_block_fork_without_center(game)
+    assert_equal true, applicable?(game, game.player_two)
   end
 
   def test_select_position_when_applicable
     game = new_game_with_computer_players
     position_player_two_to_block_fork(game)
     assert_equal 2, select_position(game, game.player_two)
+
+    game = new_game_with_computer_players
+    position_player_two_to_block_fork_without_center(game)
+    assert_equal 3, select_position(game, game.player_two)
   end
 
   def test_select_position_when_not_applicable

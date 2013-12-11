@@ -13,22 +13,6 @@ class GameQueryStateTest < Minitest::Test
     assert_equal 2, game.turn_count
   end
 
-  def test_move_at
-    game = new_game
-    assert game.move_at(1).respond_to?(:position)
-    assert game.move_at(1).respond_to?(:at)
-    assert game.move_at(1).respond_to?(:player)
-  end
-
-  def test_board_state
-    game = new_game_with_players
-    assert_equal(empty_board_state, game.board_state)
-
-    game.make_move(1, game.player_one)
-    new_state = empty_board_state.merge('1' => { symbol: 'X', color: :blue })
-    assert_equal(new_state, game.board_state)
-  end
-
   def test_previous_move_player
     game = new_game_with_players
     assert_equal nil, game.previous_move_player
@@ -99,24 +83,17 @@ class GameQueryStateTest < Minitest::Test
     assert_equal false, game.previous_move_in_corner?
   end
 
-  def test_corners
-    game = new_game
-    corners = game.corners
-    assert_equal 4, corners.length
-    assert_equal 1, corners[0].position
-    assert_equal 3, corners[1].position
-    assert_equal 7, corners[2].position
-    assert_equal 9, corners[3].position
-  end
-
-  def test_sides
-    game = new_game
-    sides = game.sides
-    assert_equal 4, sides.length
-    assert_equal 2, sides[0].position
-    assert_equal 4, sides[1].position
-    assert_equal 6, sides[2].position
-    assert_equal 8, sides[3].position
+  def test_player_made_at_least_two_moves?
+    game = new_game_with_computer_players
+    assert_equal false, game.player_made_at_least_two_moves?(game.player_one)
+    assert_equal false, game.player_made_at_least_two_moves?(game.player_two)
+    game.make_move(1, game.player_one)
+    game.make_move(2, game.player_two)
+    game.make_move(3, game.player_one)
+    assert_equal true, game.player_made_at_least_two_moves?(game.player_one)
+    assert_equal false, game.player_made_at_least_two_moves?(game.player_two)
+    game.make_move(4, game.player_two)
+    assert_equal true, game.player_made_at_least_two_moves?(game.player_two)
   end
 
   private
