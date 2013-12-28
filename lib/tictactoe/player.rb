@@ -8,9 +8,7 @@ module TicTacToe
     end
 
     def ==(other)
-      instance_variables.all? do |attr|
-        instance_variable_get(attr) == other.instance_variable_get(attr)
-      end
+      symbol == other.symbol && color == other.color
     end
 
     def to_hash
