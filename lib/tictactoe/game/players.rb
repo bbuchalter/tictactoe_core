@@ -25,9 +25,9 @@ module TicTacToe
       def player_class_for(type)
         case type
           when :human
-            ::TicTacToe::HumanPlayer
+            ::TicTacToe::Player::Human
           when :computer
-            ::TicTacToe::ComputerPlayer
+            ::TicTacToe::Player::Computer
         end
       end
     end

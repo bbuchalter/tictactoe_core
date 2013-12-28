@@ -4,6 +4,26 @@ require 'tictactoe/game'
 require 'tictactoe/strategy'
 
 class ComputerPlayerTest < Minitest::Test
+  def test_symbol
+    assert_equal 'O', computer_green_o.symbol
+  end
+
+  def test_color
+    assert_equal :green, computer_green_o.color
+  end
+
+  def test_equality
+    assert new_human_player('O', :green) == computer_green_o
+    assert nil != computer_green_o
+  end
+
+  def test_to_hash
+    assert_equal({
+                   symbol: 'O',
+                   color: :green
+                 }, computer_green_o.to_hash)
+  end
+
   def test_select_position_when_able_to_win
     game = new_game_with_computer_players
     position_player_one_for_win(game)
@@ -19,7 +39,7 @@ class ComputerPlayerTest < Minitest::Test
   def test_select_position_when_cannot_select_position
     game = new_game_with_computer_players
     make_draw(game)
-    assert_raises(::TicTacToe::ComputerPlayer::CannotSelectPosition) do
+    assert_raises(::TicTacToe::Player::Computer::CannotSelectPosition) do
       game.player_one.select_position(game)
     end
   end

@@ -1,11 +1,11 @@
 module TicTacToe
   module ObjectCreationMethods
     def new_human_player(symbol, color)
-      ::TicTacToe::HumanPlayer.new(symbol, color)
+      ::TicTacToe::Player::Human.new(symbol, color)
     end
 
     def new_computer_player(symbol, color)
-      ::TicTacToe::ComputerPlayer.new(symbol, color)
+      ::TicTacToe::Player::Computer.new(symbol, color)
     end
 
     def new_position(position, player)
