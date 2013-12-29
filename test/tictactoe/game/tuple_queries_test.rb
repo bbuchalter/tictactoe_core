@@ -43,6 +43,30 @@ class TupleQueriesTest < Minitest::Test
     assert_equal nil, player_two_tuple
   end
 
+  def test_threats_for
+    game = new_game_with_players
+    assert_equal [], game.threats_for(game.player_one)
+    assert_equal [], game.threats_for(game.player_two)
+
+    game = game_with_moves(%w(1 5 9 7 3))
+    threats = game.threats_for(game.player_one)
+    assert_equal 2, threats.count
+  end
+
+  def test_opportunities_for
+    game = new_game_with_players
+    assert_equal [], game.threats_for(game.player_one)
+    assert_equal [], game.threats_for(game.player_two)
+
+    game = game_with_moves(%w(1))
+    opportunities = game.opportunities_for(game.player_one)
+    assert_equal 3, opportunities.count
+
+    game = game_with_moves(%w(1 2))
+    opportunities = game.opportunities_for(game.player_one)
+    assert_equal 2, opportunities.count
+  end
+
   private
 
   include TicTacToe::ObjectCreationMethods

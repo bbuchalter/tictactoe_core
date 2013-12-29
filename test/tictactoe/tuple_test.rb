@@ -20,25 +20,41 @@ class TupleTest < Minitest::Test
     end
   end
 
-  def test_all_for_same_player
+  def test_all_for_same_player?
     assert_equal true, new_tuple(three_in_row).all_for_same_player?
     assert_equal false, new_tuple(alternating_positions).all_for_same_player?
     assert_equal false, new_tuple(threat).all_for_same_player?
   end
 
-  def test_two_for_sample_player
+  def test_two_for_sample_player?
     assert_equal false, new_tuple(no_two_in_row).two_for_same_player?
     assert_equal true, new_tuple(threat).two_for_same_player?
   end
 
-  def test_one_empty
+  def test_one_empty?
     assert_equal false, new_tuple([]).one_empty?
     assert_equal true, new_tuple(threat).one_empty?
+  end
+
+  def test_two_empty?
+    assert_equal false, new_tuple([]).two_empty?
+    assert_equal false, new_tuple([]).two_empty?
+
+    assert_equal false, new_tuple(no_two_in_row).two_empty?
+    assert_equal true, new_tuple(two_empty).two_empty?
   end
 
   def test_two_for_player?
     assert_equal false, new_tuple(threat).two_for?(computer_green_o)
     assert_equal true, new_tuple(threat).two_for?(human_blue_x)
+  end
+
+  def test_one_for_player?
+    assert_equal false, new_tuple([]).one_for?(computer_green_o)
+    assert_equal false, new_tuple([]).one_for?(human_blue_x)
+
+    assert_equal true, new_tuple(no_two_in_row).one_for?(computer_green_o)
+    assert_equal true, new_tuple(no_two_in_row).one_for?(human_blue_x)
   end
 
   private
@@ -47,32 +63,41 @@ class TupleTest < Minitest::Test
 
   def alternating_positions
     [
-        human_blue_x_at(1),
-        computer_green_o_at(2),
-        human_blue_x_at(3)
+      human_blue_x_at(1),
+      computer_green_o_at(2),
+      human_blue_x_at(3)
     ]
   end
 
   def three_in_row
     [
-        human_blue_x_at(1),
-        human_blue_x_at(2),
-        human_blue_x_at(3)
+      human_blue_x_at(1),
+      human_blue_x_at(2),
+      human_blue_x_at(3)
     ]
   end
 
   def threat
     [
-        human_blue_x_at(1),
-        empty_at(2),
-        human_blue_x_at(3)
+      human_blue_x_at(1),
+      empty_at(2),
+      human_blue_x_at(3)
     ]
   end
 
   def no_two_in_row
     [
-        human_blue_x_at(1),
-        computer_green_o_at(2)
+      human_blue_x_at(1),
+      computer_green_o_at(2),
+      empty_position(3)
+    ]
+  end
+
+  def two_empty
+    [
+      human_blue_x_at(1),
+      empty_position(2),
+      empty_position(3)
     ]
   end
 end

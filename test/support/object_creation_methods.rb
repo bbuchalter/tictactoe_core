@@ -12,12 +12,25 @@ module TicTacToe
       ::TicTacToe::Position.new(position, player)
     end
 
+    def empty_position(position)
+      ::TicTacToe::Position.new(position, nil)
+    end
+
     def new_board
       ::TicTacToe::Board.new
     end
 
     def new_game
       ::TicTacToe::Game.new
+    end
+
+    def game_with_moves(moves)
+      game = new_game_with_players
+      moves.each_with_index do |move, index|
+        player = index.even? ? game.player_one : game.player_two
+        game.make_move(move, player)
+      end
+      game
     end
 
     def new_game_with_players

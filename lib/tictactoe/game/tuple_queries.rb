@@ -14,8 +14,18 @@ module TicTacToe
       end
 
       def threat_for(player)
-        board.tuples.find do |tuple|
+        threats_for(player).first
+      end
+
+      def threats_for(player)
+        board.tuples.select do |tuple|
           tuple.two_for?(player) && tuple.one_empty?
+        end
+      end
+
+      def opportunities_for(player)
+        board.tuples.select do |tuple|
+          tuple.one_for?(player) && tuple.two_empty?
         end
       end
     end
