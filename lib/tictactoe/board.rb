@@ -6,7 +6,7 @@ module TicTacToe
     include Enumerable
 
     def initialize
-      @board = Array.new(9) { |i| ::TicTacToe::Position.new((i + 1), nil) }
+      @board = Array.new(9) { |i| ::TicTacToe::Position.empty((i + 1)) }
     end
 
     def each(&block)
@@ -25,10 +25,10 @@ module TicTacToe
       position.to_i - 1
     end
 
-    def new_move_for(position, value)
+    def new_move_for(position, player)
       fail InvalidPosition unless position.to_i.between?(1, 9)
       fail PositionTaken unless board[index_for(position)].empty?
-      board[index_for(position)] = value
+      board[index_for(position)] = player
     end
 
     def tuples
@@ -41,6 +41,10 @@ module TicTacToe
 
     def sides
       [at(2), at(4), at(6), at(8)]
+    end
+
+    def clear_move(position)
+      board[index_for(position)] = ::TicTacToe::Position.empty(position)
     end
 
     private

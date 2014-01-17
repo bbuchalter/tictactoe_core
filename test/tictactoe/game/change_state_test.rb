@@ -7,9 +7,24 @@ class GameChangeStateTest < Minitest::Test
     player = human_blue_x
     assert_equal nil, game.move_at(1).player
 
-    game.make_move(1, player)
+    assert game.make_move(1, player).is_a?(TicTacToe::Game)
     assert player == game.move_at(1).player
     assert_equal 1, game.move_at(1).position
+    assert_equal 1, game.turn_count
+    assert_equal player, game.previous_move_player
+    assert_equal 1, game.previous_move_position
+  end
+
+  def test_undo_last_move
+    game = new_game
+    player = human_blue_x
+    game.make_move(1, player)
+    game.undo_previous_move
+
+    assert_equal nil, game.move_at(1).player
+    assert_equal 0, game.turn_count
+    assert_equal nil, game.previous_move_player
+    assert_equal nil, game.previous_move_position
   end
 
   def test_make_move_converts_strings_to_ints

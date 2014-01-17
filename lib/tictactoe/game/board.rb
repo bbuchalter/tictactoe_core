@@ -8,7 +8,7 @@ module TicTacToe
       def board_state
         board.reduce({}) do |state, position|
           at = position.at.to_s
-          state[at] = position.empty? ? {} : position.player.to_hash
+          state[at] = position.empty? ? nil : position.player.symbol
           state
         end
       end

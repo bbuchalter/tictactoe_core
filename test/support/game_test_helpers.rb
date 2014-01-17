@@ -12,6 +12,10 @@ module TicTacToe
       game.make_move(9, game.player_two)
     end
 
+    def draw_game
+      game_with_moves(%w(1 4 2 5 6 3 7 8 9))
+    end
+
     def make_draw(game)
       game.make_move(1, game.player_one)
       game.make_move(4, game.player_two)
@@ -26,9 +30,9 @@ module TicTacToe
 
     def empty_board_state
       {
-          '1' => {}, '2' => {}, '3' => {},
-          '4' => {}, '5' => {}, '6' => {},
-          '7' => {}, '8' => {}, '9' => {}
+          '1' => nil, '2' => nil, '3' => nil,
+          '4' => nil, '5' => nil, '6' => nil,
+          '7' => nil, '8' => nil, '9' => nil
       }
     end
 
@@ -106,6 +110,14 @@ module TicTacToe
       game.make_move(4, game.player_two)
       game.make_move(6, game.player_one)
       game.make_move(8, game.player_two)
+    end
+
+    def one_possible_move_left_game
+      game_with_moves(%w(9 5 7 8 2 4 3 1))
+    end
+
+    def two_possible_moves_left_game
+      game_with_moves(%w(9 5 7 8 2 4 3))
     end
 
     def make_moves_to_win_on_last_move(game)

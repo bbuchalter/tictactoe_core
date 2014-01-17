@@ -18,6 +18,7 @@ class BoardTest < Minitest::Test
     assert board.at(1).empty?
     board.new_move_for(1, 'X')
     assert !board.at(1).empty?
+    assert board.at(1) == 'X'
   end
 
   def test_duplicate_moves
@@ -44,20 +45,24 @@ class BoardTest < Minitest::Test
     board = new_board
     corners = board.corners
     assert_equal 4, corners.length
-    assert_equal 1, corners[0].position
-    assert_equal 3, corners[1].position
-    assert_equal 7, corners[2].position
-    assert_equal 9, corners[3].position
+    assert_equal [1, 3, 7, 9], corners.map(&:position)
   end
 
   def test_sides
     board = new_board
     sides = board.sides
     assert_equal 4, sides.length
-    assert_equal 2, sides[0].position
-    assert_equal 4, sides[1].position
-    assert_equal 6, sides[2].position
-    assert_equal 8, sides[3].position
+    assert_equal [2, 4, 6, 8], sides.map(&:position)
+  end
+
+  def test_clear_move
+    board = new_board
+    board.new_move_for(1, 'X')
+    board.new_move_for(2, 'O')
+    board.clear_move(2)
+    assert !board.at(1).empty?
+    assert board.at(2).empty?
+    assert board.at(2).position == 2
   end
 
   private

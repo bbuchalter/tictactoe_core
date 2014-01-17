@@ -7,6 +7,14 @@ module TicTacToe
         board.new_move_for(position, new_move)
         self.turn_count = turn_count + 1
         move_history << new_move
+        self
+      end
+
+      def undo_previous_move
+        board.clear_move(previous_move_position)
+        self.turn_count = turn_count - 1
+        move_history.pop
+        self
       end
 
       def reset

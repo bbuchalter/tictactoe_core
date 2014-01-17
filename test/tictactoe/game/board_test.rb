@@ -14,7 +14,7 @@ class GameBoardTest < Minitest::Test
     assert_equal(empty_board_state, game.board_state)
 
     game.make_move(1, game.player_one)
-    new_state = empty_board_state.merge('1' => { symbol: 'X', color: :blue })
+    new_state = empty_board_state.merge('1' => 'X')
     assert_equal(new_state, game.board_state)
   end
 

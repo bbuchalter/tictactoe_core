@@ -1,5 +1,6 @@
 require 'tictactoe/player'
 require 'tictactoe/strategy'
+require 'tictactoe/negamax'
 
 module TicTacToe
   module Player
@@ -7,9 +8,12 @@ module TicTacToe
       include ::TicTacToe::Player
 
       def select_position(game)
-        strategy = applicable_strategy(game)
-        fail CannotSelectPosition if strategy.nil?
-        strategy.new(game, self).select_position
+        #strategy = applicable_strategy(game)
+        #fail CannotSelectPosition if strategy.nil?
+        #strategy.new(game, self).select_position
+        position = negamax(game, 10, negamax_player(game))
+        fail CannotSelectPosition if position.nil?
+        position
       end
 
       def human?
@@ -22,6 +26,16 @@ module TicTacToe
         strategies.find do |strategy|
           strategy.new(game, self).applicable?
         end
+      end
+
+      def negamax(game, depth, player)
+        negamax = Negamax.new(game, depth, player)
+        negamax.evaluate
+        game.ai_move
+      end
+
+      def negamax_player(game)
+        game.current_player == game.player_one ? 1 : -1
       end
 
       def strategies

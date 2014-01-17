@@ -8,6 +8,10 @@ module TicTacToe
       @player = player
     end
 
+    def self.empty(position)
+      new(position, nil)
+    end
+
     def empty?
       player.nil?
     end

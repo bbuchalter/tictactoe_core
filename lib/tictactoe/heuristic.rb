@@ -1,10 +1,16 @@
 module TicTacToe
   class Heuristic
-    def initialize(game)
+    def initialize(game, player)
       @game = game
+      @player = player
     end
 
     def evaluate
+      player_inversion = player == game.player_one ? 1 : -1
+      score_as_player_one * player_inversion
+    end
+
+    def score_as_player_one
       return Float::INFINITY if winner?
 
       if threatening_tuples.empty?
@@ -20,22 +26,18 @@ module TicTacToe
 
     private
 
-    attr_reader :game
+    attr_reader :game, :player
 
     def winner?
-      game.winner == player
-    end
-
-    def player
-      game.player_one
+      game.winner == game.player_one
     end
 
     def threatening_tuples
-      game.threats_for(player)
+      game.threats_for(game.player_one)
     end
 
     def opportunity_tuples
-      game.opportunities_for(player)
+      game.opportunities_for(game.player_one)
     end
   end
 end

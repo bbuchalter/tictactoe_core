@@ -16,6 +16,7 @@ module TicTacToe
     include ::TicTacToe::Game::Board
 
     attr_reader :turn_count
+    attr_accessor :ai_move
 
     def initialize(player_one = nil, player_two = nil, move_history = nil)
       initialize_board
@@ -26,6 +27,12 @@ module TicTacToe
 
     def deep_clone
       ::TicTacToe::Game.new(player_one, player_two, move_history)
+    end
+
+    def possible_games
+      empty_positions.map do |possible_move|
+        deep_clone.make_move(possible_move, current_player)
+      end
     end
 
     private

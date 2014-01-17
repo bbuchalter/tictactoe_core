@@ -29,6 +29,10 @@ class PositionTest < Minitest::Test
     assert_equal false, human_blue_x_at(8).corner?
   end
 
+  def test_empty_position_initializer
+    assert ::TicTacToe::Position.empty(1).empty?
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

@@ -34,6 +34,23 @@ class GameTest < Minitest::Test
     assert_equal game.previous_move_position, clone.previous_move_position
   end
 
+  def test_possible_games_in_draw
+    assert_equal [], draw_game.possible_games
+  end
+
+  def test_possible_games_with_one_move_remaining
+    possible_games = one_possible_move_left_game.possible_games
+    assert_equal 1, possible_games.count
+    assert possible_games.first.game_over?
+  end
+
+  def test_possible_games_with_two_moves_remaining
+    possible_games = two_possible_moves_left_game.possible_games
+    assert_equal 2, possible_games.count
+    moves_made = possible_games.map(&:previous_move_position)
+    assert_equal [1, 6], moves_made
+  end
+
   private
 
   include ::TicTacToe::ObjectCreationMethods

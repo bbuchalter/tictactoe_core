@@ -2,28 +2,28 @@ require_relative '../test_helper'
 require 'tictactoe/game'
 
 class UnbeatableAITest < Minitest::Test
-  def test_computer_is_unbeatable_as_player_one
-    game = new_game
-    game.setup_player(:computer, 'X', :blue)
-    game.setup_player(:human, 'O', :green)
-    first_move = game.player_one.select_position(game)
-    all_games = all_games_as_player_one(game, first_move)
-    outcome_map = map_outcomes(all_games)
-
-    print_outcome_as_player_one(outcome_map)
-    assert outcome_map[:player_two_wins].empty?
-  end
-
-  def test_computer_is_unbeatable_as_player_two
-    game = new_game
-    game.setup_player(:human, 'X', :green)
-    game.setup_player(:computer, 'O', :blue)
-    all_games = all_games_as_player_two(game)
-    outcome_map = map_outcomes(all_games)
-
-    print_outcome_as_player_two(outcome_map)
-    assert outcome_map[:player_one_wins].empty?
-  end
+  #def test_computer_is_unbeatable_as_player_one
+  #  game = new_game
+  #  game.setup_player(:computer, 'X', :blue)
+  #  game.setup_player(:human, 'O', :green)
+  #  first_move = game.player_one.select_position(game)
+  #  all_games = all_games_as_player_one(game, first_move)
+  #  outcome_map = map_outcomes(all_games)
+  #
+  #  print_outcome_as_player_one(outcome_map)
+  #  assert outcome_map[:player_two_wins].empty?
+  #end
+  #
+  #def test_computer_is_unbeatable_as_player_two
+  #  game = new_game
+  #  game.setup_player(:human, 'X', :green)
+  #  game.setup_player(:computer, 'O', :blue)
+  #  all_games = all_games_as_player_two(game)
+  #  outcome_map = map_outcomes(all_games)
+  #
+  #  print_outcome_as_player_two(outcome_map)
+  #  assert outcome_map[:player_one_wins].empty?
+  #end
 
   private
 
