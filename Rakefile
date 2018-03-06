@@ -10,7 +10,7 @@ task :coverage do
 end
 
 task :lint do
-  sh 'rubocop -c .rubocop.yml'
+  sh 'bundle exec rubocop -c .rubocop.yml'
 end
 
 task :collect_coverage do
